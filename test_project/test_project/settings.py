@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -67,7 +67,12 @@ TEMPLATES = [
         },
     },
 ]
+# Set APP_DIRS back to true, which should fix template folder detection, but doesn't.
 TEMPLATES[0]['APP_DIRS'] = True
+
+# Print TEMPLATES to the console, as proof that APP_DIRS is actually True.
+from pprint import pprint
+pprint(TEMPLATES)
 
 WSGI_APPLICATION = 'test_project.wsgi.application'
 
